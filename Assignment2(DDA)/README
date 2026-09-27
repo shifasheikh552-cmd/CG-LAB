@@ -1,1 +1,18 @@
+Assignment 2: DDA Line Drawing Algorithm
 
+Objective:
+To understand and implement the Digital Differential Analyzer (DDA) Line Drawing Algorithm for drawing straight lines pixel-by-pixel in computer graphics.
+
+### Algorithm Description
+1. **Input**: Starting point $(x_1, y_1)$ and Ending point $(x_2, y_2)$.
+2. **Calculate Differences**:
+   $$\Delta x = x_2 - x_1$$
+   $$\Delta y = y_2 - y_1$$
+3. **Determine Steps**:
+   $$\text{steps} = \max(|\Delta x|, |\Delta y|)$$
+4. **Calculate Increments**:
+   $$X_{\text{inc}} = \frac{\Delta x}{\text{steps}}, \quad Y_{\text{inc}} = \frac{\Delta y}{\text{steps}}$$
+5. **Plot Pixels**:
+   For $i = 0$ to $\text{steps}$:
+   - Plot pixel at $(\text{round}(x), \text{round}(y))$ using `putpixel()`.
+   - Update coordinates: $x = x + X_{\text{inc}}$, $y = y + Y_{\text{inc}}$.

@@ -1,0 +1,53 @@
+﻿{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "Build Graphics Program (WinBGIm)",
+      "command": "C:\\MinGW\\bin\\g++.exe",
+      "args": [
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "-lbgi",
+        "-lgdi32",
+        "-lcomdlg32",
+        "-luuid",
+        "-loleaut32",
+        "-lole32"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "Compiler: MinGW GCC with WinBGIm graphics and Windows GDI libraries"
+    },
+    {
+      "type": "shell",
+      "label": "Build and Run Graphics Program",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "C:\\MinGW\\bin\\g++.exe \"${file}\" -o \"${fileDirname}\\${fileBasenameNoExtension}.exe\" -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32 && start \"\" \"${fileDirname}\\${fileBasenameNoExtension}.exe\""
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "detail": "Builds and launches the compiled graphics application in a separate window"
+    }
+  ]
+}
